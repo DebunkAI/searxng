@@ -1,14 +1,35 @@
-# Railway (Debunk)
+# Railway — DebunkAI/searxng
 
-Build : **Dockerfile** à la racine (`railway.toml` force `builder = DOCKERFILE`).
+**Repo GitHub (à connecter sur Railway) :**
 
-Variables obligatoires sur Railway :
+```text
+https://github.com/DebunkAI/searxng.git
+```
 
-| Variable | Valeur |
-|----------|--------|
+| Réglage Railway | Valeur |
+|-----------------|--------|
+| Branche | `master` |
+| Root Directory | `/` (racine) |
+| Builder | `DOCKERFILE` (`railway.toml`) |
+
+## Variables
+
+| Variable | Description |
+|----------|-------------|
 | `SEARXNG_BASE_URL` | URL publique du service, ex. `https://serxng-deployment-production.up.railway.app/` |
-| `SEARXNG_SECRET_KEY` | Secret long, **identique** à chaque redeploy |
+| `SEARXNG_SECRET_KEY` | Secret stable entre redeploys |
 
-Test : `curl "$SEARXNG_BASE_URL/search?q=test&format=json"`
+## Test API JSON
 
-Debunk : `SEARXNG_BASE_URL` sans slash final dans `.env.local` / Vercel.
+```bash
+curl -sS "$SEARXNG_BASE_URL/search?q=test&format=json"
+```
+
+## Debunk
+
+Dans `.env.local` / Vercel :
+
+```env
+WEB_SEARCH_PROVIDER=searxng
+SEARXNG_BASE_URL=https://serxng-deployment-production.up.railway.app
+```
