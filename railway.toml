@@ -1,0 +1,13 @@
+# Force Docker (image officielle SearXNG), pas Railpack/Go.
+# Si Railway détecte « Detected Golang », le repo racine est le mauvais (ex. searxng/searxng).
+# Déployer ce dossier : Settings → Root Directory = infra/searxng-railway
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

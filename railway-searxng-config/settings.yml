@@ -1,0 +1,13 @@
+# https://docs.searxng.org/admin/settings/settings.html#settings-use-default-settings
+use_default_settings: true
+general:
+  debug: false
+search:
+  formats:
+    - html
+    - json
+server:
+  limiter: false
+  image_proxy: true
+ui:
+  static_use_hash: true

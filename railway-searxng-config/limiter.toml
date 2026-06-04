@@ -1,0 +1,9 @@
+# Rate limiting désactivé côté SearXNG (Debunk gère le cache).
+# https://docs.searxng.org/admin/searx.limiter.html
+
+[botdetection.ip_limit]
+link_token = false
+
+[botdetection.ip_lists]
+block_ip = []
+pass_ip = []
